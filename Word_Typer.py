@@ -125,8 +125,10 @@ try:
         score=Score(canvas,"orange",highscore_read())
         container=Container(canvas,"Blue")
         game=Text(canvas,"#cc0000")    
-        import words
-        word_list=words.letter
+        f = open('words.txt','r')
+        word_list = f.readlines()
+        for i in range(len(word_list)):
+            word_list[i] = word_list[i].replace('\n','')
         random.shuffle(word_list)
 
         old_box,new_box,n,miss=0,0,0,0
