@@ -27,3 +27,4 @@ nepal
 mountain
 hill
 terai
+college
