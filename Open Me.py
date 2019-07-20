@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+
+__author__ = 'Rohit Joshi'
+
 from tkinter import *
 import random
 import time
