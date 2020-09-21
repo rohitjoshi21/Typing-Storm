@@ -7,6 +7,8 @@ from tkinter import *
 import random
 import time
 
+
+
 class Box:
     def __init__(self,canvas,color,score,game):
         self.canvas=canvas
@@ -119,8 +121,9 @@ class Text:
             play_again=True
 
 def highscore_read():
-    file=open("high_score.txt")
+    file=open("High_score.txt")
     high_score=int(file.read())
+    file.close()
     return high_score
 
 def highscore_write(high_score):
@@ -129,6 +132,12 @@ def highscore_write(high_score):
         file.write(str(high_score))
         file.close()
 
+def getSpeed():
+    file = open("config.txt")
+    level = int(file.read().split(':')[1])
+    speed = level/5
+    file.close()
+    return speed
 
 tk=Tk()
 tk.title("Typing-Storm")
@@ -136,6 +145,7 @@ canvas=Canvas(tk,width=700,height=600,bg="#c0ceab")
 canvas.pack()
 tk.update()
 play=True
+SPEED = getSpeed()
 
 try:
     while play==True:
@@ -149,7 +159,7 @@ try:
         random.shuffle(word_list)
 
         old_box,new_box,n,miss=0,0,0,0
-        speed=1
+        speed=SPEED
         play_again=False
         lower_limit=canvas.winfo_height()-40
 
